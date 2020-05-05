@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: go-hostname-pod
+  labels:
+    client: internal
+    version: 1.0.0
+    environtment: dev
+  annotations:
+    description: Practice Kubernetes Pod
+spec:
+  containers:
+    - name: go-hostname-pod
+      image: momo89/go-hostname
+      ports:
+        - containerPort: 5000
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 5000
+        initialDelaySeconds: 0
+        periodSeconds: 10
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 5000
+        initialDelaySeconds: 0
+        periodSeconds: 10
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3
+      startupProbe:
+        httpGet:
+          path: /
+          port: 5000
+        initialDelaySeconds: 0
+        periodSeconds: 10
+        timeoutSeconds: 1
+        successThreshold: 1
+        failureThreshold: 3

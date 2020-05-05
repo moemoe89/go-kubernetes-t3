@@ -1,6 +1,8 @@
 # KUBERNETES-PODS #
 
-This Pod project for practice Kubernetes
+This Pod project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
+
+All of configuration will be following port 5000 for the application
 
 ## Setup
 
@@ -21,7 +23,8 @@ $ minikube start --vm-driver virtualbox
 ## Create
 Create pod :
 ```
-$ kubectl create -f go-hello-world.yaml
+$ kubectl create -f [POD YAML FILE]
+$ kubectl create -f go-hostname-pod.yaml
 ```
 
 ## Check
@@ -35,23 +38,26 @@ $ kubectl get pod -o wide
 ```
 Describe pod :
 ```
-$ kubectl describe pod go-hello-world
+$ kubectl describe pod [POD NAME]
+$ kubectl describe pod go-hostname-pod
 ```
 
 ## Access
-Access pod :
+Access pod:
 ```
-$ kubectl port-forward go-hello-world 8782:8782
+$ kubectl port-forward [POD NAME] [ACCESS PORT]:[TARGET PORT]
+$ kubectl port-forward go-hostname-pod 5000:5000
 ```
 Navigate browser to this address :
 ```
-localhost:8782
+localhost:5000
 ```
 
 ## Delete
 Delete pod :
 ```
-$ kubectl delete pod go-hello-world --now 
+$ kubectl delete pod [POD NAME] --now
+$ kubectl delete pod go-hostname-pod --now
 ```
 
 ## License

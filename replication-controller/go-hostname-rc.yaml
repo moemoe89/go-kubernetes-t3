@@ -1,18 +1,17 @@
-apiVersion: apps/v1
-kind: ReplicaSet
+apiVersion: v1
+kind: ReplicationController
 metadata:
-  name: go-hostname-rs
+  name: go-hostname-rc
   labels:
     client: internal
     version: 1.0.0
     environtment: dev
   annotations:
-      description: Practice Kubernetes Replication Set
+      description: Practice Kubernetes Replication Controller
 spec:
   replicas: 3
   selector:
-    matchLabels:
-      app: go-hostname
+    app: go-hostname
   template:
     metadata:
       name: go-hostname-pod
@@ -23,5 +22,4 @@ spec:
         - name: go-hostname
           image: momo89/go-hostname
           ports:
-            - containerPort: 9792
-
+            - containerPort: 5000

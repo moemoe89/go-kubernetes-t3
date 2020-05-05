@@ -1,6 +1,8 @@
 # KUBERNETES-REPLICATION-SETS #
 
-This Replication Set project for practice Kubernetes
+This Replication Set project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
+                                                    
+All of configuration will be following port 5000 for the application
 
 ## Setup
 
@@ -19,9 +21,10 @@ $ minikube start --vm-driver virtualbox
 ```
 
 ## Create
-Create pod :
+Create replication :
 ```
-$ kubectl create -f go-hostname.yaml
+$ kubectl create -f [REPLICATION SET YAML FILE]
+$ kubectl create -f go-hostname-rs.yaml
 ```
 
 ## Check
@@ -31,6 +34,7 @@ $ kubectl get rs
 ```
 Describe replication set :
 ```
+$ kubectl describe rs/[REPLICATION SET NAME]
 $ kubectl describe rs/go-hostname-rs
 ```
 Check pod :
@@ -43,21 +47,25 @@ $ kubectl get pod -o wide
 ```
 Describe pod :
 ```
+$ kubectl describe pod [POD NAME]
 $ kubectl describe pod go-hostname-{UNIQUE-ID}
 ```
 
 ## Delete
 Delete pod :
 ```
+$ kubectl delete pod [POD NAME]
 $ kubectl delete pod go-hostname-{UNIQUE-ID}
 ```
 Delete replication :
 ```
-$ kubectl delete rs go-hostname-rc 
+$ kubectl delete rs [REPLICATION SET NAME]
+$ kubectl delete rs go-hostname-rs
 ```
 Delete replication without pod :
 ```
-$ kubectl delete rs go-hostname-rc --cascade=false
+$ kubectl delete rs [REPLICATION SET NAME] --cascade=false
+$ kubectl delete rs go-hostname-rs --cascade=false
 ```
 
 ## License
