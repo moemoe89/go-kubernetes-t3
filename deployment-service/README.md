@@ -1,6 +1,6 @@
-# KUBERNETES-REPLICATION-CONTROLLER-SERVICES #
+# KUBERNETES-DEPLOYMENT-SERVICES #
 
-This Replication Controller Service project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
+This Deployment Service project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
 
 All of configuration will be following port 5000 for the application
 
@@ -21,10 +21,10 @@ $ minikube start --vm-driver virtualbox
 ```
 
 ## Apply
-Apply replication controller :
+Apply deployment :
 ```
-$ kubectl apply -f [REPLICATION CONTROLLER YAML FILE]
-$ kubectl apply -f go-hostname-rc.yaml
+$ kubectl apply -f [DEPLOYMENT YAML FILE]
+$ kubectl apply -f go-hostname-deployment.yaml
 ```
 Apply service :
 ```
@@ -46,18 +46,14 @@ Describe pod :
 $ kubectl describe pod [POD NAME]
 $ kubectl describe pod go-hostname-{UNIQUE-ID}
 ```
-Check replication :
+Check deployment :
 ```
-$ kubectl get replicationcontrollers
-or
-$ kubectl get replicationcontroller
-or
-$ kubectl get rc
+$ kubectl get deployment
 ```
-Describe replication controller :
+Describe deployment :
 ```
-$ kubectl describe rc/[REPLICATION CONTROLLER NAME]
-$ kubectl describe rc/go-hostname-rc
+$ kubectl describe deployment/[DEPLOYMENT NAME]
+$ kubectl describe deployment/go-hostname-deployment
 ```
 Check service :
 ```
@@ -94,10 +90,10 @@ Delete pod :
 $ kubectl delete pod [POD NAME]
 $ kubectl delete pod go-hostname-{UNIQUE-ID}
 ```
-Delete replication :
+Delete deployment :
 ```
-$ kubectl delete rc [REPLICATION CONTROLLER NAME]
-$ kubectl delete rc go-hostname-rc 
+$ kubectl delete deployment [DEPLOYMENT NAME]
+$ kubectl delete deployment go-hostname-deployment
 ```
 Delete service :
 ```

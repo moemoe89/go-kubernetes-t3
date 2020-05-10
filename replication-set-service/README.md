@@ -1,6 +1,6 @@
-# KUBERNETES-REPLICATION-CONTROLLER-SERVICES #
+# KUBERNETES-REPLICATION-SET-SERVICES #
 
-This Replication Controller Service project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
+This Replication Set Service project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
 
 All of configuration will be following port 5000 for the application
 
@@ -21,10 +21,10 @@ $ minikube start --vm-driver virtualbox
 ```
 
 ## Apply
-Apply replication controller :
+Apply replication set :
 ```
-$ kubectl apply -f [REPLICATION CONTROLLER YAML FILE]
-$ kubectl apply -f go-hostname-rc.yaml
+$ kubectl apply -f [REPLICATION SET YAML FILE]
+$ kubectl apply -f go-hostname-rs.yaml
 ```
 Apply service :
 ```
@@ -48,16 +48,12 @@ $ kubectl describe pod go-hostname-{UNIQUE-ID}
 ```
 Check replication :
 ```
-$ kubectl get replicationcontrollers
-or
-$ kubectl get replicationcontroller
-or
-$ kubectl get rc
+$ kubectl get rs
 ```
-Describe replication controller :
+Describe replication set :
 ```
-$ kubectl describe rc/[REPLICATION CONTROLLER NAME]
-$ kubectl describe rc/go-hostname-rc
+$ kubectl describe rs/[REPLICATION SET NAME]
+$ kubectl describe rs/go-hostname-rs
 ```
 Check service :
 ```
@@ -96,8 +92,8 @@ $ kubectl delete pod go-hostname-{UNIQUE-ID}
 ```
 Delete replication :
 ```
-$ kubectl delete rc [REPLICATION CONTROLLER NAME]
-$ kubectl delete rc go-hostname-rc 
+$ kubectl delete rs [REPLICATION SET NAME]
+$ kubectl delete rs go-hostname-rs
 ```
 Delete service :
 ```
