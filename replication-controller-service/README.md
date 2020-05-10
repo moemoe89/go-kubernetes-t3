@@ -1,4 +1,4 @@
-# KUBERNETES-POD-SERVICES #
+# KUBERNETES-REPLICATION-CONTROLLER-SERVICES #
 
 This Pod Service project for practice Kubernetes. The go-hostname image container is a simple app that running on port 5000
 
@@ -21,10 +21,10 @@ $ minikube start --vm-driver virtualbox
 ```
 
 ## Apply
-Apply pod :
+Apply replication controller :
 ```
-$ kubectl apply -f [POD YAML FILE]
-$ kubectl apply -f go-hostname-pod.yaml
+$ kubectl apply -f [REPLICATION CONTROLLER YAML FILE]
+$ kubectl apply -f go-hostname-rc.yaml
 ```
 Apply service :
 ```
@@ -44,7 +44,20 @@ $ kubectl get pod -o wide
 Describe pod :
 ```
 $ kubectl describe pod [POD NAME]
-$ kubectl describe pod go-hostname-pod
+$ kubectl describe pod go-hostname-{UNIQUE-ID}
+```
+Check replication :
+```
+$ kubectl get replicationcontrollers
+or
+$ kubectl get replicationcontroller
+or
+$ kubectl get rc
+```
+Describe replication set :
+```
+$ kubectl describe rc/[REPLICATION CONTROLLER NAME]
+$ kubectl describe rc/go-hostname-rc
 ```
 Check service :
 ```
@@ -78,8 +91,13 @@ Navigate browser to this address :
 ## Delete
 Delete pod :
 ```
-$ kubectl delete pod [POD NAME] --now
-$ kubectl delete pod go-hostname-pod --now
+$ kubectl delete pod [POD NAME]
+$ kubectl delete pod go-hostname-{UNIQUE-ID}
+```
+Delete replication :
+```
+$ kubectl delete rc [REPLICATION CONTROLLER NAME]
+$ kubectl delete rc go-hostname-rc 
 ```
 Delete service :
 ```

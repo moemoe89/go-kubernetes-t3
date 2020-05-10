@@ -23,8 +23,8 @@ $ minikube start --vm-driver virtualbox
 ## Create
 Create replication :
 ```
-$ kubectl create -f [REPLICATION SET YAML FILE]
-$ kubectl create -f go-hostname-rs.yaml
+$ kubectl apply -f [REPLICATION SET YAML FILE]
+$ kubectl apply -f go-hostname-rs.yaml
 ```
 
 ## Check

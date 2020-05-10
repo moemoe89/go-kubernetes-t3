@@ -23,8 +23,8 @@ $ minikube start --vm-driver virtualbox
 ## Create
 Create pod :
 ```
-$ kubectl create -f [POD YAML FILE]
-$ kubectl create -f go-hostname-pod.yaml
+$ kubectl apply -f [POD YAML FILE]
+$ kubectl apply -f go-hostname-pod.yaml
 ```
 
 ## Check
